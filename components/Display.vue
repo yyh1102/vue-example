@@ -1,19 +1,35 @@
 <template>
     <div>
-        <h3>Count is <span>{{counterValue}}</span></h3>
+        <ul>
+            <li class="item"
+                v-for="item in list"
+                track-by="$index"
+                @click="deleteItem($index)"
+            >
+                {{item}}
+            </li>
+        </ul>
     </div>
 </template>
 <style>
-    span{
-        color:red;
+    ul{
+        list-style-type: none;
+    }
+    .item{
+        font-size:16px;
+        color:chocolate;
     }
 </style>
 
 <script>
+    import {deleteItem} from "../vuex/actions";
     export default{
         vuex:{
             getters:{
-                counterValue:state=>state.count
+                list:state=>state.list
+            },
+            actions:{
+                deleteItem:deleteItem
             }
         },
     }

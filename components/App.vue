@@ -1,24 +1,29 @@
 <template>
     <div>
-        <p>{{msg}}</p>
+        <p class="todoTitle">{{msg}}</p>
+        <Add-item></Add-item>
         <Display></Display>
-        <Increment></Increment>
     </div>
 </template>
-
+<style>
+    .todoTitle{
+        color:cadetblue;
+        font-size:18px;
+    }
+</style>
 <script>
     import store from "../vuex/store";
-    import Increment from "./Increment.vue";
+    import AddItem from "./AddItem.vue";
     import Display from "./Display.vue";
     export default{
         data(){
             return{
-                msg:'hello vue'
+                msg:'todoList'
             }
         },
         components:{
             Display,
-            Increment
+            AddItem
         },
         store
     }

@@ -4,16 +4,15 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const state={
-    count:0
+    list:[]
 }
 
 const mutations={
-    INCREMENT(state,amount){
-        state.count=state.count+amount
+    ADDITEM(state,item){
+        state.list.push(item);
     },
-    REDUCE(state,amount){
-        if(state.count<=0) return;
-        state.count=state.count-amount
+    DELETEITEM(state,index){
+        state.list.splice(index,1);
     }
 }
 
